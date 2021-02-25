@@ -6,18 +6,19 @@
 		时间戳：<input v-model="time" type="text" />
 		会话ID：<input v-model="conversationID" type="text" />
 		SIM_ID：<input v-model="SIMCardID" type="text" />
+		id(删除)：<input v-model="id" type="number" />
 
 
 		<button class="btn" @click='add()'>添加短信测试</button>
-		<button class="btn" @click='goDefaultApp()'>前往默认应用设置（备用）</button>
 		<button class="btn" @click='isDefaultApp()'>检测是否默认App</button>
 		<button class="btn" @click='setDefaultApp()'>设置当前应用为默认短信</button>
 		<button class="btn" @click='restoreDefaultApp()'>恢复默认短信应用</button>
 		<button class="btn" @click='checkPermission()'>检查短信权限</button>
 		<button class="btn" @click='requestPermission()'>获取短信权限</button>
 		<button class="btn" @click='readSmsMsg()'>读取短信（测试用）</button>
+		<button class="btn" @click='getAllMsg()'>获取所有短信</button>
 		<div class="pstate" :style="{backgroundColor: hasPermission ? 'green': 'red'}">权限状态</div>
-		<!-- <button class="btn" @click='delAllMessage()'>删除测试</button> -->
+		<button class="btn" @click='del()'>删除测试</button>
 
 	</view>
 </template>
@@ -28,12 +29,13 @@
 	export default {
 		data() {
 			return {
-				source: '',
-				number: '',
-				content: '',
-				time: '',
-				conversationID: '',
-				SIMCardID: '',
+				source: '1',
+				number: '6505551212',
+				content: '@@@@',
+				time: '1614182434065',
+				conversationID: '1',
+				SIMCardID: '0',
+				id: '1',
 				hasPermission: false,
 			}
 		},
@@ -41,9 +43,6 @@
 
 		},
 		methods: {
-			goDefaultApp() {
-				smsapi.goDefaultApp();
-			},
 			setDefaultApp() {
 				smsapi.setDefaultApp();
 				
@@ -51,15 +50,23 @@
 			restoreDefaultApp() {
 				smsapi.restoreDefaultApp();
 			},
+			getAllMsg() {
+				let ret = smsapi.getAllMsg();
+				modal.toast({
+					message: ret,
+					duration: 1.5
+				});
+				this.log(JSON.stringify(ret));
+			},
 
 			checkPermission() {
-				console.log("开始检查权限");
+				this.log("开始检查权限");
 				let res = smsapi.checkPermission();
-				if (res.code === "fail") {
-					console.log(' 权限未获取');
+				if (!res) {
+					this.log(' 权限未获取');
 					this.hasPermission = false;
 				} else {
-					console.log('权限已获取');
+					this.log('权限已获取');
 					this.hasPermission = true;
 				}
 				modal.toast({
@@ -68,13 +75,13 @@
 				})
 			},
 			requestPermission() {
-				console.log("开始请求权限");
+				this.log("开始请求权限");
 				smsapi.requestPermission(data => {
 					if (data.code === 'success') {
-						console.log('权限请求成功');
+						this.log('权限请求成功');
 						this.hasPermission = true;
 					} else {
-						console.log('权限请求失败');
+						this.log('权限请求失败');
 						this.hasPermission = false;
 					}
 					modal.toast({
@@ -102,7 +109,13 @@
 					message: ret,
 					duration: 1.5
 				})
-				
+			},
+			del() {
+				let ret = smsapi.delSmsMsg(this.id);
+				modal.toast({
+					message: '删除目标ID:' + ret,
+					duration: 1.5
+				})
 			},
 			readSmsMsg() {
 				smsapi.readSmsMsg();
@@ -113,6 +126,11 @@
 					duration: 1.5
 				})
 			},
+			
+			log(msg) {
+				console.log(msg);
+				smsapi.log(msg);
+			}
 			
 
 		}

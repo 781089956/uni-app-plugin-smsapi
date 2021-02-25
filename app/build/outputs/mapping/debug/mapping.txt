@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 2.1.75
-# min_api: 28
-# pg_map_id: 20b02ff
+# min_api: 21
+# pg_map_id: 6d3b681
 # common_typos_disable
 XI.K0.XI.XI$K0 -> XI.K0.XI.a:
     XI.K0.XI.XI XI -> a
@@ -49947,20 +49947,21 @@ pl.droidsonroids.gif.transforms.CornerRadiusTransform -> pl.droidsonroids.gif.tr
     37:38:void setCornerRadius(float) -> setCornerRadius
     41:46:void setCornerRadiusSafely(float) -> setCornerRadiusSafely
 top.yzzblog.smsapi.SmsModule -> top.yzzblog.smsapi.SmsModule:
-    31:49:void <init>() -> <init>
-    213:234:boolean addSmsMsg(com.alibaba.fastjson.JSONObject) -> addSmsMsg
-    62:78:com.alibaba.fastjson.JSONObject checkPermission() -> checkPermission
-    294:297:void goDefaultApp() -> goDefaultApp
-    195:205:boolean isDefaultApp() -> isDefaultApp
-    305:306:void log(java.lang.String) -> log
-    53:55:void onActivityStart() -> onActivityStart
-    108:131:void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
-    266:287:void printMsg(android.database.Cursor,java.lang.String[],int) -> printMsg
-    243:259:void readSmsMsg() -> readSmsMsg
-    86:104:void requestPermission(io.dcloud.feature.uniapp.bridge.UniJSCallback) -> requestPermission
-    183:189:void restoreDefaultApp() -> restoreDefaultApp
-    168:179:void setDefaultApp() -> setDefaultApp
-    301:302:void test() -> test
+    28:50:void <init>() -> <init>
+    255:279:int addSmsMsg(com.alibaba.fastjson.JSONObject) -> addSmsMsg
+    67:80:boolean checkPermission() -> checkPermission
+    236:243:int delSmsMsg(int) -> delSmsMsg
+    289:316:com.alibaba.fastjson.JSONArray getAllMsg() -> getAllMsg
+    217:224:boolean isDefaultApp() -> isDefaultApp
+    377:378:void log(java.lang.String) -> log
+    55:57:void onActivityStart() -> onActivityStart
+    121:144:void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
+    346:367:void printMsg(android.database.Cursor,java.lang.String[],int) -> printMsg
+    325:339:void readSmsMsg() -> readSmsMsg
+    90:117:void requestPermission(io.dcloud.feature.uniapp.bridge.UniJSCallback) -> requestPermission
+    202:208:void restoreDefaultApp() -> restoreDefaultApp
+    184:195:void setDefaultApp() -> setDefaultApp
+    372:373:void test() -> test
 top.yzzblog.smsapi.activities.ComposeSmsActivity -> top.yzzblog.smsapi.activities.ComposeSmsActivity:
     5:5:void <init>() -> <init>
 top.yzzblog.smsapi.reveivers.MmsReceiver -> top.yzzblog.smsapi.reveivers.MmsReceiver:
