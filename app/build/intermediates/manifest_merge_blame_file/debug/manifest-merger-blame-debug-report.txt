@@ -1,0 +1,483 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.HBuilder.UniPlugin"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml
+10
+11    <supports-screens
+11-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:5:5-10:39
+12        android:anyDensity="true"
+12-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:6:9-34
+13        android:largeScreens="true"
+13-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:7:9-36
+14        android:normalScreens="true"
+14-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:8:9-37
+15        android:resizeable="true"
+15-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:9:9-34
+16        android:smallScreens="true" />
+16-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:10:9-36
+17
+18    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+18-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:16:5-81
+18-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:16:22-78
+19    <uses-permission android:name="android.permission.INTERNET" />
+19-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:17:5-67
+19-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:17:22-64
+20    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+20-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:18:5-79
+20-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:18:22-76
+21    <!--
+22    <uses-permission
+23        android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+24    -->
+25    <!-- 华为修改角标需要设置权限 -->
+26    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" /> <!-- vivo 修改角标需要设置权限 -->
+26-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:24:5-91
+26-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:24:22-88
+27    <uses-permission android:name="com.vivo.notification.permission.BADGE_ICON" />
+27-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:26:5-83
+27-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:26:22-80
+28
+29    <queries>
+29-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:28:5-32:15
+30        <intent>
+30-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:29:9-31:18
+31            <action android:name="android.intent.action.MAIN" />
+31-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:43:17-68
+31-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:43:25-66
+32        </intent>
+33    </queries>
+34
+35    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+36    <uses-permission android:name="com.asus.msa.SupplementaryDID.ACCESS" />
+36-->[oaid_sdk_1.0.25.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\f1a46bd3509370298ae00307f9bc755f\oaid_sdk_1.0.25\AndroidManifest.xml:13:5-76
+36-->[oaid_sdk_1.0.25.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\f1a46bd3509370298ae00307f9bc755f\oaid_sdk_1.0.25\AndroidManifest.xml:13:22-73
+37    <uses-permission android:name="freemme.permission.msa" />
+37-->[oaid_sdk_1.0.25.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\f1a46bd3509370298ae00307f9bc755f\oaid_sdk_1.0.25\AndroidManifest.xml:15:5-62
+37-->[oaid_sdk_1.0.25.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\f1a46bd3509370298ae00307f9bc755f\oaid_sdk_1.0.25\AndroidManifest.xml:15:22-59
+38    <uses-permission android:name="android.permission.SEND_SMS" />
+38-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-67
+38-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:22-64
+39    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+39-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-70
+39-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:22-67
+40    <uses-permission android:name="android.permission.READ_SMS" />
+40-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-67
+40-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:22-64
+41    <uses-permission android:name="android.permission.WRITE_SMS" />
+41-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-68
+41-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:22-65
+42    <uses-permission android:name="android.permission.RECEIVE_MMS" />
+42-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-70
+42-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:22-67
+43
+44    <application
+44-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:13:5-84:19
+45        android:name="io.dcloud.application.DCloudApplication"
+45-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:14:9-63
+46        android:allowBackup="true"
+46-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:15:9-35
+47        android:allowClearUserData="true"
+47-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:16:9-42
+48        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+48-->[com.android.support:support-compat:28.0.0] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\2a6c121eda6c2cbe33230f54b72bbbd4\support-compat-28.0.0\AndroidManifest.xml:22:18-91
+49        android:debuggable="true"
+49-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:20:9-34
+50        android:icon="@drawable/icon"
+50-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:17:9-38
+51        android:label="@string/app_name"
+51-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:18:9-41
+52        android:largeHeap="true"
+52-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:19:9-33
+53        android:supportsRtl="true"
+53-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:21:9-35
+54        android:testOnly="true"
+55        android:usesCleartextTraffic="true" >
+55-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:167:9-44
+56
+57        <!-- 应用入口 -->
+58        <activity
+58-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:24:9-46:20
+59            android:name="io.dcloud.PandoraEntry"
+59-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:25:13-50
+60            android:configChanges="orientation|keyboardHidden|screenSize|mcc|mnc|fontScale"
+60-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:27:13-92
+61            android:hardwareAccelerated="true"
+61-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:28:13-47
+62            android:theme="@style/TranslucentTheme"
+62-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:26:13-52
+63            android:windowSoftInputMode="adjustResize" >
+63-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:29:13-55
+64            <intent-filter>
+64-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:30:13-36:29
+65                <data android:scheme="hbuilder" />
+65-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:17-50
+65-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:23-48
+66
+67                <action android:name="android.intent.action.VIEW" />
+67-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:32:17-68
+67-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:32:25-66
+68
+69                <category android:name="android.intent.category.DEFAULT" />
+69-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:34:17-75
+69-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:34:27-73
+70                <category android:name="android.intent.category.BROWSABLE" />
+70-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:35:17-77
+70-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:35:27-75
+71            </intent-filter>
+72            <intent-filter>
+72-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:37:13-41:29
+73                <data android:mimeType="image/*" />
+73-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:17-50
+73-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:38:23-49
+74
+75                <action android:name="android.intent.action.SEND" />
+75-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:39:17-68
+75-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:39:25-66
+76
+77                <category android:name="android.intent.category.DEFAULT" />
+77-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:34:17-75
+77-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:34:27-73
+78            </intent-filter>
+79            <intent-filter>
+79-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:42:13-45:29
+80                <action android:name="android.intent.action.MAIN" />
+80-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:43:17-68
+80-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:43:25-66
+81
+82                <category android:name="android.intent.category.LAUNCHER" />
+82-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:44:17-76
+82-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:44:27-74
+83            </intent-filter>
+84        </activity>
+85
+86        <meta-data
+86-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:47:9-48:35
+87            android:name="dcloud_uninview_background"
+87-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:47:20-61
+88            android:value="true" />
+88-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:48:13-33
+89
+90        <activity
+90-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:50:9-74:20
+91            android:name="io.dcloud.PandoraEntryActivity"
+91-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:51:13-58
+92            android:configChanges="orientation|keyboardHidden|screenSize|mcc|mnc|fontScale|keyboard"
+92-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:53:13-101
+93            android:hardwareAccelerated="true"
+93-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:54:13-47
+94            android:launchMode="singleTask"
+94-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:52:13-44
+95            android:permission="com.miui.securitycenter.permission.AppPermissionsEditor"
+95-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:55:13-89
+96            android:screenOrientation="user"
+96-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:56:13-45
+97            android:theme="@style/DCloudTheme"
+97-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:57:13-47
+98            android:windowSoftInputMode="adjustResize" >
+98-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:58:13-55
+99            <intent-filter>
+99-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:60:13-73:29
+100                <category android:name="android.intent.category.DEFAULT" />
+100-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:34:17-75
+100-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:34:27-73
+101                <category android:name="android.intent.category.BROWSABLE" />
+101-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:35:17-77
+101-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:35:27-75
+102
+103                <action android:name="android.intent.action.VIEW" />
+103-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:32:17-68
+103-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:32:25-66
+104
+105                <data android:scheme="h56131bcf" />
+105-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:17-50
+105-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:23-48
+106            </intent-filter>
+107        </activity>
+108
+109        <provider
+109-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:75:9-83:20
+110            android:name="io.dcloud.common.util.DCloud_FileProvider"
+110-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:76:13-69
+111            android:authorities="com.HBuilder.UniPlugin.dc.fileprovider"
+111-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:77:13-73
+112            android:exported="false"
+112-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:78:13-37
+113            android:grantUriPermissions="true" >
+113-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:79:13-47
+114            <meta-data
+114-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:80:13-82:64
+115                android:name="android.support.FILE_PROVIDER_PATHS"
+115-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:81:17-67
+116                android:resource="@xml/dcloud_file_provider" />
+116-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:82:17-61
+117        </provider>
+118
+119        <service
+119-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:168:9-170:40
+120            android:name="io.dcloud.common.adapter.io.MiniServerService"
+120-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:169:13-73
+121            android:exported="false" />
+121-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:170:13-37
+122
+123        <receiver
+123-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:172:9-178:20
+124            android:name="io.dcloud.common.adapter.io.PushReceiver"
+124-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:173:13-68
+125            android:exported="false" >
+125-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:174:13-37
+126            <intent-filter>
+126-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:175:13-177:29
+127                <action android:name="dcloud.push.broswer" />
+127-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:176:17-62
+127-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:176:25-59
+128            </intent-filter>
+129        </receiver>
+130
+131        <activity
+131-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:180:9-183:40
+132            android:name="io.dcloud.imagepick.CustomGalleryActivity"
+132-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:181:13-69
+133            android:exported="false"
+133-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:182:13-37
+134            android:noHistory="true" />
+134-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:183:13-37
+135        <activity
+135-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:184:9-188:58
+136            android:name="io.dcloud.feature.nativeObj.photoview.PhotoActivity"
+136-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:185:13-79
+137            android:exported="false"
+137-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:186:13-37
+138            android:noHistory="false"
+138-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:187:13-38
+139            android:theme="@style/DeviceDefault.Light" />
+139-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:188:13-55
+140        <activity
+140-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:189:9-199:58
+141            android:name="io.dcloud.WebAppActivity"
+141-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:190:13-52
+142            android:configChanges="orientation|keyboardHidden|screenSize|mcc|mnc|fontScale"
+142-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:191:13-92
+143            android:hardwareAccelerated="true"
+143-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:192:13-47
+144            android:icon="@drawable/dcloud_recent"
+144-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:193:13-51
+145            android:label="@string/stream_my"
+145-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:194:13-46
+146            android:launchMode="singleTask"
+146-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:195:13-44
+147            android:screenOrientation="portrait"
+147-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:196:13-49
+148            android:taskAffinity=":stream"
+148-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:197:13-43
+149            android:theme="@style/DCloudTheme"
+149-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:198:13-47
+150            android:windowSoftInputMode="adjustResize" />
+150-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:199:13-55
+151        <activity
+151-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:200:9-206:75
+152            android:name="io.dcloud.ProcessMediator"
+152-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:201:13-53
+153            android:excludeFromRecents="true"
+153-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:202:13-46
+154            android:exported="false"
+154-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:203:13-37
+155            android:label="@string/app_name"
+155-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:204:13-45
+156            android:launchMode="singleTop"
+156-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:205:13-43
+157            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+157-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:206:13-72
+158        <activity
+158-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:207:9-213:20
+159            android:name="io.dcloud.WebviewActivity"
+159-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:208:13-53
+160            android:exported="false"
+160-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:209:13-37
+161            android:screenOrientation="portrait"
+161-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:210:13-49
+162            android:theme="@style/ThemeNoTitleBar"
+162-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:211:13-51
+163            android:windowSoftInputMode="adjustPan" >
+163-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:212:13-52
+164        </activity>
+165
+166        <receiver
+166-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:215:9-226:20
+167            android:name="io.dcloud.common.adapter.io.DownloadReceiver"
+167-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:216:13-72
+168            android:exported="false" >
+168-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:217:13-37
+169            <intent-filter>
+169-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:218:13-220:29
+170                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+170-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:219:17-82
+170-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:219:25-79
+171            </intent-filter>
+172            <intent-filter>
+172-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:221:13-225:29
+173                <action android:name="android.intent.action.PACKAGE_ADDED" />
+173-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:222:17-78
+173-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:222:25-75
+174
+175                <data android:scheme="package" /> <!-- HERE! -->
+175-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:17-50
+175-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:23-48
+176            </intent-filter>
+177        </receiver> <!-- gallery******start -->
+178        <activity
+178-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:229:9-233:63
+179            android:name="com.dmcbig.mediapicker.PickerActivity"
+179-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:230:13-65
+180            android:configChanges="orientation|screenSize"
+180-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:231:13-59
+181            android:theme="@style/DeviceDefault.Light"
+181-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:232:13-55
+182            android:windowSoftInputMode="stateAlwaysHidden" />
+182-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:233:13-60
+183        <activity
+183-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:234:9-238:63
+184            android:name="com.dmcbig.mediapicker.PreviewActivity"
+184-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:235:13-66
+185            android:configChanges="orientation|screenSize"
+185-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:236:13-59
+186            android:theme="@style/DeviceDefault.Light"
+186-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:237:13-55
+187            android:windowSoftInputMode="stateAlwaysHidden" /> <!-- gallery******end -->
+187-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:238:13-60
+188        <!--
+189        <provider
+190            android:name="io.dcloud.common.util.DCloud_FileProvider"
+191            android:authorities="${apk.applicationId}.dc.fileprovider"
+192            android:exported="false"
+193            android:grantUriPermissions="true">
+194            <meta-data
+195                android:name="android.support.FILE_PROVIDER_PATHS"
+196                android:resource="@xml/dcloud_file_provider" />
+197        </provider>
+198        -->
+199        <!--
+200            <meta-data
+201            android:name="DCLOUD_STREAMAPP_CHANNEL"
+202            android:value="io.dcloud.%APPID%|%APPID%|" />
+203        -->
+204        <meta-data
+204-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:259:9-261:35
+205            android:name="android.max_aspect"
+205-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:260:13-46
+206            android:value="2.4" />
+206-->[lib.5plus.base-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\61b3a9d169a34702e403ef098d24ed24\lib.5plus.base-release\AndroidManifest.xml:261:13-32
+207
+208        <receiver
+208-->[uniapp-v8-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\02adb31edd94fe25ad213d3e21773385\uniapp-v8-release\AndroidManifest.xml:30:9-34:20
+209            android:name="com.taobao.weex.WXGlobalEventReceiver"
+209-->[uniapp-v8-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\02adb31edd94fe25ad213d3e21773385\uniapp-v8-release\AndroidManifest.xml:31:13-65
+210            android:enabled="true"
+210-->[uniapp-v8-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\02adb31edd94fe25ad213d3e21773385\uniapp-v8-release\AndroidManifest.xml:32:13-35
+211            android:exported="false" >
+211-->[uniapp-v8-release.aar] C:\Users\16009\.gradle\caches\transforms-2\files-2.1\02adb31edd94fe25ad213d3e21773385\uniapp-v8-release\AndroidManifest.xml:33:13-37
+212        </receiver> <!-- BroadcastReceiver that listens for incoming SMS messages -->
+213        <receiver
+213-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:9-26:20
+214            android:name="top.yzzblog.smsapi.reveivers.SmsReceiver"
+214-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:13-68
+215            android:permission="android.permission.BROADCAST_SMS" >
+215-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-66
+216            <intent-filter>
+216-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-25:29
+217                <action android:name="android.provider.Telephony.SMS_DELIVER" />
+217-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:17-81
+217-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:25-78
+218            </intent-filter>
+219        </receiver> <!-- BroadcastReceiver that listens for incoming MMS messages -->
+220        <receiver
+220-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:28:9-36:20
+221            android:name="top.yzzblog.smsapi.reveivers.MmsReceiver"
+221-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:29:13-68
+222            android:permission="android.permission.BROADCAST_WAP_PUSH" >
+222-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:30:13-71
+223            <intent-filter>
+223-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:13-35:29
+224                <action android:name="android.provider.Telephony.WAP_PUSH_DELIVER" />
+224-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:32:17-86
+224-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:32:25-83
+225
+226                <data android:mimeType="application/vnd.wap.mms-message" />
+226-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:17-50
+226-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:38:23-49
+227            </intent-filter>
+228        </receiver> <!-- Activity that allows the user to send new SMS/MMS messages -->
+229        <activity android:name="top.yzzblog.smsapi.activities.ComposeSmsActivity" >
+229-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:38:9-51:20
+229-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:38:19-82
+230            <intent-filter>
+230-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:39:13-50:29
+231                <action android:name="android.intent.action.SEND" />
+231-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:39:17-68
+231-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:39:25-66
+232                <action android:name="android.intent.action.SENDTO" />
+232-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:41:17-71
+232-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:41:25-68
+233
+234                <category android:name="android.intent.category.DEFAULT" />
+234-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:34:17-75
+234-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:34:27-73
+235                <category android:name="android.intent.category.BROWSABLE" />
+235-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:35:17-77
+235-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:35:27-75
+236
+237                <data android:scheme="sms" />
+237-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:17-50
+237-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:23-48
+238                <data android:scheme="smsto" />
+238-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:17-50
+238-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:23-48
+239                <data android:scheme="mms" />
+239-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:17-50
+239-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:23-48
+240                <data android:scheme="mmsto" />
+240-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:17-50
+240-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:23-48
+241            </intent-filter>
+242        </activity> <!-- Service that delivers messages from the phone "quick response" -->
+243        <service
+243-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:53:9-67:19
+244            android:name="top.yzzblog.smsapi.services.HeadlessSmsSendService"
+244-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:54:13-78
+245            android:exported="true"
+245-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:55:13-36
+246            android:permission="android.permission.SEND_RESPOND_VIA_MESSAGE" >
+246-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:56:13-77
+247            <intent-filter>
+247-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:57:13-66:29
+248                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE" />
+248-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:58:17-84
+248-->[:smsapi] C:\Users\16009\Desktop\sample\smsapi\build\intermediates\library_manifest\debug\AndroidManifest.xml:58:25-81
+249
+250                <category android:name="android.intent.category.DEFAULT" />
+250-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:34:17-75
+250-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:34:27-73
+251
+252                <data android:scheme="sms" />
+252-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:17-50
+252-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:23-48
+253                <data android:scheme="smsto" />
+253-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:17-50
+253-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:23-48
+254                <data android:scheme="mms" />
+254-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:17-50
+254-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:23-48
+255                <data android:scheme="mmsto" />
+255-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:17-50
+255-->C:\Users\16009\Desktop\sample\app\src\main\AndroidManifest.xml:31:23-48
+256            </intent-filter>
+257        </service>
+258    </application>
+259
+260</manifest>
