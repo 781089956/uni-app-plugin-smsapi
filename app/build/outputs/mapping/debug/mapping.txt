@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 2.1.75
-# min_api: 21
-# pg_map_id: 6d3b681
+# min_api: 23
+# pg_map_id: 3a04dcb
 # common_typos_disable
 XI.K0.XI.XI$K0 -> XI.K0.XI.a:
     XI.K0.XI.XI XI -> a
@@ -49947,31 +49947,36 @@ pl.droidsonroids.gif.transforms.CornerRadiusTransform -> pl.droidsonroids.gif.tr
     37:38:void setCornerRadius(float) -> setCornerRadius
     41:46:void setCornerRadiusSafely(float) -> setCornerRadiusSafely
 top.yzzblog.smsapi.SmsModule -> top.yzzblog.smsapi.SmsModule:
-    28:50:void <init>() -> <init>
-    255:279:int addSmsMsg(com.alibaba.fastjson.JSONObject) -> addSmsMsg
-    67:80:boolean checkPermission() -> checkPermission
-    236:243:int delSmsMsg(int) -> delSmsMsg
-    289:316:com.alibaba.fastjson.JSONArray getAllMsg() -> getAllMsg
-    217:224:boolean isDefaultApp() -> isDefaultApp
-    377:378:void log(java.lang.String) -> log
-    55:57:void onActivityStart() -> onActivityStart
-    121:144:void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
-    346:367:void printMsg(android.database.Cursor,java.lang.String[],int) -> printMsg
-    325:339:void readSmsMsg() -> readSmsMsg
-    90:117:void requestPermission(io.dcloud.feature.uniapp.bridge.UniJSCallback) -> requestPermission
-    202:208:void restoreDefaultApp() -> restoreDefaultApp
-    184:195:void setDefaultApp() -> setDefaultApp
-    372:373:void test() -> test
+    33:58:void <init>() -> <init>
+    320:343:int addSmsMsg(com.alibaba.fastjson.JSONObject) -> addSmsMsg
+    74:87:boolean checkPermission() -> checkPermission
+    301:308:int delSmsMsg(int) -> delSmsMsg
+    353:380:com.alibaba.fastjson.JSONArray getAllMsg() -> getAllMsg
+    285:289:boolean isDefaultApp() -> isDefaultApp
+    441:442:void log(java.lang.String) -> log
+    274:276:void onActivityCreate() -> onActivityCreate
+    149:151:void onActivityDestroy() -> onActivityDestroy
+    62:64:void onActivityStart() -> onActivityStart
+    191:214:void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
+    410:431:void printMsg(android.database.Cursor,java.lang.String[],int) -> printMsg
+    389:403:void readSmsMsg() -> readSmsMsg
+    92:145:void registerOnReceiveCallback(io.dcloud.feature.uniapp.bridge.UniJSCallback) -> registerOnReceiveCallback
+    160:187:void requestPermission(io.dcloud.feature.uniapp.bridge.UniJSCallback) -> requestPermission
+    257:270:void restoreDefaultApp() -> restoreDefaultApp
+    225:250:void setDefaultApp() -> setDefaultApp
+    436:437:void test() -> test
+top.yzzblog.smsapi.SmsModule$1 -> top.yzzblog.smsapi.SmsModule$a:
+    io.dcloud.feature.uniapp.bridge.UniJSCallback val$callback -> a
+    97:97:void <init>(top.yzzblog.smsapi.SmsModule,io.dcloud.feature.uniapp.bridge.UniJSCallback) -> <init>
+    101:138:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 top.yzzblog.smsapi.activities.ComposeSmsActivity -> top.yzzblog.smsapi.activities.ComposeSmsActivity:
     5:5:void <init>() -> <init>
 top.yzzblog.smsapi.reveivers.MmsReceiver -> top.yzzblog.smsapi.reveivers.MmsReceiver:
     7:7:void <init>() -> <init>
     11:11:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 top.yzzblog.smsapi.reveivers.SmsReceiver -> top.yzzblog.smsapi.reveivers.SmsReceiver:
-    java.lang.String phoneNumber -> a
-    14:14:void <init>() -> <init>
-    40:47:void addSmsToDB(android.content.Context,java.lang.String,java.lang.String) -> a
-    19:37:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    9:9:void <init>() -> <init>
+    14:17:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 top.yzzblog.smsapi.services.HeadlessSmsSendService -> top.yzzblog.smsapi.services.HeadlessSmsSendService:
     8:8:void <init>() -> <init>
     12:12:android.os.IBinder onBind(android.content.Intent) -> onBind

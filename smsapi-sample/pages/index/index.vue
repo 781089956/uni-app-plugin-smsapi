@@ -17,6 +17,8 @@
 		<button class="btn" @click='requestPermission()'>获取短信权限</button>
 		<button class="btn" @click='readSmsMsg()'>读取短信（测试用）</button>
 		<button class="btn" @click='getAllMsg()'>获取所有短信</button>
+		<button class="btn" @click='register()'>注册短信接收</button>
+		
 		<div class="pstate" :style="{backgroundColor: hasPermission ? 'green': 'red'}">权限状态</div>
 		<button class="btn" @click='del()'>删除测试</button>
 
@@ -43,6 +45,17 @@
 
 		},
 		methods: {
+			register() {
+				smsapi.registerOnReceiveCallback(data => {
+					this.log(data);
+				
+					modal.toast({
+						message: smsapi.addSmsMsg(data),
+						duration: 1.5
+					});
+				})
+			},
+			
 			setDefaultApp() {
 				smsapi.setDefaultApp();
 				

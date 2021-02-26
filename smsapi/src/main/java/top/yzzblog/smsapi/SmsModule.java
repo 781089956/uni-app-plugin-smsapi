@@ -2,14 +2,19 @@ package top.yzzblog.smsapi;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.provider.Telephony;
+import android.telephony.SmsMessage;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSONArray;
@@ -18,22 +23,52 @@ import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 import io.dcloud.feature.uniapp.annotation.UniJSMethod;
 import io.dcloud.feature.uniapp.bridge.UniJSCallback;
 import io.dcloud.feature.uniapp.common.UniModule;
 
 
+/**
+ * @author yztz
+ *
+ * <p>关于SDK相关说明</p>
+ * <em>小于API 23(6.0) 不需要运行时权限，可以直接读取短信；反之，需要申请运行时权限 requestPermission()</em> <br />
+ * <em>大于等于API 19(4.4) 需要设置默认app才可写入</em>
+ *
+ * <p>SMS-API参数说明：</p>
+ * <p>所有用于传递SMS消息的JSON对象的字段命名统一为如下名称</p>
+ * <ol>
+ *     <li>{@code _id} 短信的编号id，自增字段</li>
+ *     <li>{@code date} 短信发送时间，为Unix标准时间戳，单位（毫秒）</li>
+ *     <li>{@code type} 短信来源，1-接收，2-发送</li>
+ *     <li>{@code body} 短信内容</li>
+ *     <li>{@code sub_id} 所属sim卡id，默认情况下为-1</li>
+ *     <li>{@code thread_id} 短信会话id，一个address对应一个thread_id</li>
+ *     <li>{@code address} 来信号码</li>
+ * </ol>
+ *
+ * <p>主要API</p>
+ *
+ * @see #addSmsMsg(JSONObject)
+ * @see #delSmsMsg(int)
+ * @see #registerOnReceiveCallback(UniJSCallback)
+ * @see #checkPermission()
+ * @see #requestPermission(UniJSCallback)
+ * @see #isDefaultApp()
+ * @see #setDefaultApp()
+ * @see #restoreDefaultApp()
+ *
+ */
 public class SmsModule extends UniModule {
-    /*
-    关于SDK相关说明：
-        < API 23(6.0) 不需要运行时权限，可以直接读取短信；反之，需要申请运行时权限 requestPermission()
-        >= API 19(4.4) 需要设置默认app才可写入
+    /**
+     * 日志标签
      */
-
-
     public static final String TAG = "SmsModule";
+    /**
+     * 接收短信用 ACTION
+     */
+    public static final String SMS_RECEIVE_ACTION = "top.yzzblog.intent.SMS_RECEIVE";
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private final String[] PERMISSIONS_STORAGE = {
@@ -49,23 +84,18 @@ public class SmsModule extends UniModule {
 
     private String system_default_SMSApp_package = null;
 
+    private BroadcastReceiver receiver = null;
 
-    @Override
-    public void onActivityStart() {
-        super.onActivityStart();
-
-    }
 
     /**
      * 检查是否已经获取SMS相关权限
      *
-     * @return API < 23 永远返回true
+     * @return API小于23，将永远返回true
      */
     @UniJSMethod(uiThread = false)
     public boolean checkPermission() {
 
         Context context = mUniSDKInstance.getContext();
-        JSONObject data = new JSONObject();
 
         // SDK >= 23
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -79,6 +109,80 @@ public class SmsModule extends UniModule {
         }
         return true;
     }
+
+    /**
+     * <p>注册收到新消息时的回调函数</p>
+     *
+     * <em>注意：在未注册之前的所有新短信将会被丢弃</em>
+     *
+     * <p>回调参数 {@code JSONObject}将包含如下字段</p>
+     * <ol>
+     *     <li>{@code address} 来信号码</li>
+     *     <li>{@code type} <em>恒为1</em></li>
+     *     <li>{@code date} 短信发送时间，为Unix标准时间戳，单位（毫秒）</li>
+     *     <li>{@code sub_id} 所属sim卡id，默认情况下为-1</li>
+     *     <li>{@code body} 短信内容</li>
+     * </ol>
+     *
+     * @param callback 回调函数，届时会返回一个包含新短信信息的JSON对象
+     */
+    @UniJSMethod(uiThread = false)
+    public void registerOnReceiveCallback(UniJSCallback callback) {
+        Context context = mUniSDKInstance.getContext();
+        //之前注册过
+        if (null != receiver) {
+            context.unregisterReceiver(receiver);
+        }
+        receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+
+                Bundle bundle = intent.getExtras();
+                if (null != bundle) {
+                    StringBuilder messageBody = new StringBuilder();
+                    String phoneNumber = null;
+                    Long time = null;
+
+                    // SUB_ID
+                    Integer subId = bundle.getInt("subscription");
+
+                    Object[] pdus = (Object[]) bundle.get("pdus");
+                    SmsMessage[] msg = new SmsMessage[pdus.length];
+
+                    for (int i = 0; i < pdus.length; i++) {
+                        msg[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
+                    }
+                    if (msg.length > 0) {
+                        // 内容
+                        for (SmsMessage currMsg : msg) {
+                            messageBody.append(currMsg.getDisplayMessageBody());
+                        }
+                        // 发信人
+                        phoneNumber = msg[0].getDisplayOriginatingAddress();
+                        time = msg[0].getTimestampMillis();
+                    }
+
+                    JSONObject data = new JSONObject();
+                    data.put("address", phoneNumber);
+                    data.put("type", 1);
+                    data.put("date", time);
+                    data.put("body", messageBody);
+                    data.put("sub_id", subId);
+
+                    callback.invokeAndKeepAlive(data);
+
+                } else {
+                    callback.invokeAndKeepAlive(null);
+                }
+            }
+        };
+        IntentFilter filter = new IntentFilter(SMS_RECEIVE_ACTION);
+        context.registerReceiver(receiver, filter);
+
+
+        log("注册成功");
+    }
+
 
     /**
      * 申请SMS相关权限
@@ -143,50 +247,35 @@ public class SmsModule extends UniModule {
         reqPerCallback = null;
     }
 
-//    private void registerBroadcastReceiver(Context context) {
-//        default_SMS_changed_receiver = new BroadcastReceiver() {
-//            @Override
-//            public void onReceive(Context context, Intent intent) {
-//                log("进入接收器");
-//                if (intent.getAction().equals(ACTION_DEFAULT_SMS_PACKAGE_CHANGED) && changeDefAppCallback != null) {
-//                    boolean hasChanged = intent.getBooleanExtra(EXTRA_IS_DEFAULT_SMS_APP, false);
-//                    //成功改变默认SMS应用
-//                    JSONObject data = new JSONObject();
-//                    if (hasChanged) {
-//                        log("默认应用改变成功");
-//                        data.put("code", "success");
-//                    } else {
-//                        log("默认应用改变失败");
-//                        data.put("code", "fail");
-//                    }
-//                    changeDefAppCallback.invoke(data);
-//                    changeDefAppCallback = null;
-//                }
-//            }
-//        };
-//
-//        //注册广播接收器
-//        IntentFilter filter = new IntentFilter();
-//        filter.addAction(ACTION_DEFAULT_SMS_PACKAGE_CHANGED);
-//        context.registerReceiver(default_SMS_changed_receiver, filter);
-//        log("注册成功");
-//
-//    }
 
     /**
      * 设置当前app为短信默认
      * 注意：该方法不能确保默认短信应用被正确设置，在后来操作中，最好调用isDefaultApp()来二次验证
-     * <p>
-     * “android.provider.Telephony.Sms.Intents.ACTION_DEFAULT_SMS_PACKAGE_CHANGED”
+     *
+     * 注：原因由于“android.provider.Telephony.Sms.Intents.ACTION_DEFAULT_SMS_PACKAGE_CHANGED”失效
      */
     @UniJSMethod
     public void setDefaultApp() {
         Context context = mUniSDKInstance.getContext();
+
         String currentPn = context.getPackageName();//获取当前程序包名
         if (!isDefaultApp()) {
-            //注册广播
-            //接收设置的结果的广播接收器工作未能达到预期 @see ACTION_DEFAULT_SMS_PACKAGE_CHANGED
-//            if (default_SMS_changed_receiver == null) registerBroadcastReceiver(context);
+
+            //第一次执行 记录系统默认的短信应用
+            if (system_default_SMSApp_package == null) {
+                SharedPreferences sp = context.getSharedPreferences("system_default_SMSApp_package", Context.MODE_PRIVATE);
+                String sys_package = sp.getString("system_default_SMSApp_package", null);
+
+                // 还没被记录
+                if (null == sys_package) {
+                    system_default_SMSApp_package = Telephony.Sms.getDefaultSmsPackage(context);    //获取手机当前设置的默认短信应用的包名
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("system_default_SMSApp_package", system_default_SMSApp_package);
+                    editor.apply();
+                } else {    // 已经被记录，则获取
+                    system_default_SMSApp_package = sys_package;
+                }
+            }
 
             Intent intent = new Intent(Telephony.Sms.Intents.ACTION_CHANGE_DEFAULT);
             intent.putExtra(Telephony.Sms.Intents.EXTRA_PACKAGE_NAME, currentPn);
@@ -200,27 +289,37 @@ public class SmsModule extends UniModule {
     @UniJSMethod
     public void restoreDefaultApp() {
         Context context = mUniSDKInstance.getContext();
-        if (isDefaultApp() && system_default_SMSApp_package != null) {
+
+        if (isDefaultApp()) {
+
+            if (null == system_default_SMSApp_package) {
+                SharedPreferences sp = context.getSharedPreferences("system_default_SMSApp_package", Context.MODE_PRIVATE);
+                system_default_SMSApp_package = sp.getString("system_default_SMSApp_package", null);
+            }
+
             Intent intent = new Intent(Telephony.Sms.Intents.ACTION_CHANGE_DEFAULT);
             intent.putExtra(Telephony.Sms.Intents.EXTRA_PACKAGE_NAME, system_default_SMSApp_package);
             context.startActivity(intent);
         }
     }
 
+    @Override
+    public void onActivityCreate() {
+        super.onActivityCreate();
+        log("*********************************");
+    }
+
     /**
      * 判断当前的App是否为系统默认短信App
      *
-     * @return
+     * @return 是否是默认短信app的布尔值
      */
     @UniJSMethod(uiThread = false)
     public boolean isDefaultApp() {
         Context context = mUniSDKInstance.getContext();
-        String defaultSmsApp = null;
+        String defaultSmsApp = Telephony.Sms.getDefaultSmsPackage(context);//获取手机当前设置的默认短信应用的包名;
         String currentPn = context.getPackageName();//获取当前程序包名
-        defaultSmsApp = Telephony.Sms.getDefaultSmsPackage(context);//获取手机当前设置的默认短信应用的包名
-        //第一次执行 记录系统默认的短信应用
-        if (system_default_SMSApp_package == null)
-            system_default_SMSApp_package = defaultSmsApp;
+
         return defaultSmsApp.equals(currentPn);
 
     }
@@ -228,8 +327,9 @@ public class SmsModule extends UniModule {
     /**
      * 删除指定id短信
      *
-     * @param id
-     * @return -1：删除失败 > 0: 删除成功，返回id
+     * @param id 要删除的短信_id
+     * @return -1：删除失败
+     *         > 0: 删除成功，返回id
      */
     @UniJSMethod(uiThread = false)
     public int delSmsMsg(int id) {
@@ -244,32 +344,34 @@ public class SmsModule extends UniModule {
     }
 
     /**
-     * 添加短信记录
-     * 说明: 对于android4.4（API 19）及以上版本，短信的写入/删除操作，都需要设置为默认短信应用
+     * 添加短信记录<br/>
+     * 说明: 对于android4.4（API 19）及以上版本，短信的写入/删除操作，都需要设置为默认短信应用<br/>
+     * <em>注意：现所有字段均统一为类注释字段</em><br/>
+     * <em>警告: 对于thread_id，如果在未知状态下可不传递或传递空值（系统会自动归类），切勿在不确定号码与thread_id映射关系下进行赋值，否则将会造成短信消息紊乱</em>
      *
-     * @param obj
-     * @return -1：添加失败（权限不足） > 0：添加成功，返回id
+     * @param obj 要新增的消息的 {@code JSONObject}
+     * @return -1：添加失败（权限不足）
+     *         > 0：添加成功，返回id
      */
     @UniJSMethod(uiThread = false)
     public int addSmsMsg(JSONObject obj) {
         Context context = mUniSDKInstance.getContext();
         if (!isDefaultApp()) return -1;
 
-        String source = obj.getString("source");
-        String number = obj.getString("number");
-        String content = obj.getString("content");
-        String time = obj.getString("time");
-        String conversationID = obj.getString("conversationID");
-        String SIMCardID = obj.getString("SIMCardID");
+        String source = obj.getString("type");
+        String number = obj.getString("address");
+        String content = obj.getString("body");
+        String time = obj.getString("date");
+        String conversationID = obj.getString("thread_id");
+        String SIMCardID = obj.getString("sub_id");
 
-        Uri sms_inbox = Uri.parse("content://sms/");
         ContentValues cv = new ContentValues();
 
         cv.put("type", source);
         cv.put("address", number);
         cv.put("body", content);
         cv.put("date", time);
-        cv.put("thread_id", conversationID);
+        if (null != conversationID) cv.put("thread_id", conversationID);
         cv.put("sub_id", SIMCardID);
 
         Uri uri = context.getContentResolver().insert(Uri.parse("content://sms/"), cv);
@@ -317,8 +419,8 @@ public class SmsModule extends UniModule {
     }
 
 
-    /*
-    测试用 读取短信
+    /**
+     * 测试用 读取短信
      */
     @UniJSMethod(uiThread = false)
     public void readSmsMsg() {
@@ -327,11 +429,11 @@ public class SmsModule extends UniModule {
 
         Cursor cur = context.getContentResolver().query(sms_inbox, null, null, null, "date desc");
 
-        for (int i = 0; i < Objects.requireNonNull(cur).getColumnCount(); i++) {
-            log(cur.getColumnName(i));
-        }
+//        for (int i = 0; i < Objects.requireNonNull(cur).getColumnCount(); i++) {
+//            log(cur.getColumnName(i));
+//        }
 
-        printMsg(cur, new String[]{"_id", "thread_id", "sub_id"}, 20);
+        printMsg(cur, new String[]{"_id", "thread_id", "body"}, 20);
 
         if (!cur.isClosed()) {
             cur.close();
@@ -339,8 +441,11 @@ public class SmsModule extends UniModule {
     }
 
 
-    /*
-    测试用，打印短信内容
+    /**
+     * 测试用，打印短信内容
+     * @param cur
+     * @param columns
+     * @param limit
      */
     private void printMsg(Cursor cur, String[] columns, int limit) {
         HashMap<String, Integer> map = new HashMap<>();
@@ -366,12 +471,18 @@ public class SmsModule extends UniModule {
         }
     }
 
-
+    /**
+     * 测试用 表明插件是否注册成功
+     */
     @UniJSMethod
     public void test() {
         log("插件加载成功");
     }
 
+    /**
+     * 用于logcat的日志记录
+     * @param msg 消息
+     */
     @UniJSMethod(uiThread = false)
     public void log(String msg) {
         Log.i(TAG, msg);

@@ -2755,6 +2755,8 @@ dc.squareup.okhttp3.ConnectionPool:
     static final synthetic boolean $assertionsDisabled
 android.support.v7.widget.ScrollingTabContainerView:
     private static final android.view.animation.Interpolator sAlphaInterpolator
+top.yzzblog.smsapi.SmsModule$1:
+    final synthetic top.yzzblog.smsapi.SmsModule this$0
 XI.XI.K0.XI:
     public static boolean K0
 android.support.v7.widget.ListPopupWindow:
